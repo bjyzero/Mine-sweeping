@@ -10,12 +10,12 @@ int main(void)
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int n, m;
     cin >> n >> m;
+    //因为后续有下标通过max()和min()来维护其合法性，所以我们从 1 开始输入
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= m; ++j)
             cin >> arr[i][j];
 
     //扫雷
-    //因为后续有下标通过max()和min()来维护其合法性，所以我们从 1 开始输入
     for (int i = 1; i <= n; ++i)
     {
         for (int j = 1; j <= m; ++j)
@@ -25,7 +25,6 @@ int main(void)
                 ans[i][j] = 9;
                 continue;
             }
-            
             for (int a = max(1, i - 1); a <= min(n, i + 1); ++a)
             {
                 for (int b = max(1, j - 1); b <= min(m, j + 1); ++b)
