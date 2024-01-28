@@ -44,6 +44,8 @@ int main(void)
     {
         for (int d = 1; d <= m; ++d)
         {
+            //在 " \n"[d == m] 中,若d=m,输出'\n', 否则输出' '
+            //[]-->正则表达式
             cout << ans[c][d] << " \n"[d == m];
         }
     }
