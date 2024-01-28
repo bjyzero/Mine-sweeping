@@ -3,7 +3,7 @@ using namespace std;
 
 const int N = 101;
 int arr[N][N];
-int ans[N][N];
+int ans[N][N];  //这里单独开一个记录答案的数组
 
 int main(void)
 {
@@ -11,14 +11,11 @@ int main(void)
     int n, m;
     cin >> n >> m;
     for (int i = 1; i <= n; ++i)
-    {
         for (int j = 1; j <= m; ++j)
-        {
             cin >> arr[i][j];
-        }
-    }
 
     //扫雷
+    //因为后续有下标通过max()和min()来维护其合法性，所以我们从 1 开始输入
     for (int i = 1; i <= n; ++i)
     {
         for (int j = 1; j <= m; ++j)
@@ -40,15 +37,11 @@ int main(void)
         }
     }
 
+    //在 " \n"[d == m] 中,若d=m,输出'\n', 否则输出' '
+    //[]-->正则表达式
     for (int c = 1; c <= n; ++c)
-    {
         for (int d = 1; d <= m; ++d)
-        {
-            //在 " \n"[d == m] 中,若d=m,输出'\n', 否则输出' '
-            //[]-->正则表达式
             cout << ans[c][d] << " \n"[d == m];
-        }
-    }
-
+    
     return 0;
 }
